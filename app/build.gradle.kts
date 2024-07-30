@@ -57,6 +57,10 @@ android {
 dependencies {
 
 
+    //Projects
+
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -75,6 +79,7 @@ dependencies {
     androidTestImplementation(project(":app"))
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.paging)
+
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)

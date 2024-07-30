@@ -21,4 +21,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "Androidbp"
 include(":app")
- 
+include(":data:main-repository")
+include(":data:main-local")
+include(":data:main-remote")
+include(":domain")
+include(":core")
+include(":feature")
+include(":feature:main")
+include(":domain:mainn")
+include(":domain:main")
