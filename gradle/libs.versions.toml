@@ -1,17 +1,29 @@
 [versions]
-agp = "8.4.0"
+projectApplicationId = "ir.composenews"
+projectVersionName = "1.0.0"
+projectMinSdkVersion = "23"
+projectTargetSdkVersion = "34"
+projectCompileSdkVersion = "34"
+projectVersionCode = "1"
+
+composeActivity = "1.8.2"
+composeCompiler = "1.5.11"
+composeMaterial3 = "1.2.1"
+
+agp = "8.1.4"
 coilCompose = "2.4.0"
+androidTools = "31.4.1"
 converterGson = "2.9.0"
-hiltAndroid = "2.51.1"
+hiltAndroid = "2.50"
 hiltCompiler = "1.2.0"
-hiltPlugin = "2.51.1"
+hiltPlugin = "2.50"
 kotlin = "1.9.23"
 coreKtx = "1.13.1"
 kotlinxCoroutinesAndroid = "1.7.3"
 kotlinxCoroutinesCore = "1.7.3"
 lifecycleRuntimeKtx = "2.8.0"
 activityCompose = "1.9.0"
-composeBom = "2024.05.00"
+composeBom = "2024.03.00"
 loggingInterceptor = "4.10.0"
 materialIconsExtended = "1.6.7"
 navigationCompose = "2.8.0-beta01"
@@ -19,6 +31,7 @@ okhttp = "4.12.0"
 retrofit = "2.9.0"
 kotlinxSerializationJson = "1.6.3"
 roomKtx = "2.6.1"
+ksp = "1.9.10-1.0.13"
 
 junit = "4.13.2"
 truth = "1.4.2"
@@ -68,6 +81,7 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtx" }
 androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "roomKtx" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
@@ -76,6 +90,8 @@ hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hil
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "composeCompiler" }
+
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -90,6 +106,12 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "roomKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -98,4 +120,14 @@ daggerHiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt
 jetbrainsKotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "roomKtx" }
+
+
+# Plugins defined by this project
+nowinandroid-hilt = { id = "razi.androidbp.hilt", version = "unspecified" }
+nowinandroid-android-room = { id = "razi.androidbp.room", version = "unspecified" }
+nowinandroid-android-library = { id = "razi.androidbp.library", version = "unspecified" }
+nowinandroid-application = { id = "razi.androidbp.application", version = "unspecified" }
+nowinandroid-application-compose = { id = "razi.androidbp.application.compose", version = "unspecified" }
 
