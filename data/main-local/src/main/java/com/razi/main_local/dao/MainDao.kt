@@ -5,19 +5,20 @@ import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import com.razi.main_local.model.MainEntity
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
 interface MainDao {
 
     @Upsert
-    suspend fun upsertDataEntity(noteEntity: MainEntity)
+      fun upsertDataEntity(noteEntity: MainEntity)
 
     @Query("SELECT * FROM mainentity")
-    suspend fun getAllDataEntities(): List<MainEntity>
+      fun getAllDataEntities(): Flow<List<MainEntity>>
 
     @Delete
-    suspend fun deleteDataEntity(noteEntity: MainEntity)
+      fun deleteDataEntity(noteEntity: MainEntity)
 
 }
 

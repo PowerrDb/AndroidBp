@@ -3,7 +3,7 @@ package com.razi.main_remote.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class NetworkTopic(
+data class RemoteMain(
     val id: String,
     val name: String = "",
     val shortDescription: String = "",

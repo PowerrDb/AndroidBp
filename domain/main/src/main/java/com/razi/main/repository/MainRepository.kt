@@ -5,4 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MainRepository {
     fun getListOfData():Flow<List<MainDataModel>>
+    suspend fun syncMainList()
 }
