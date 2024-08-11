@@ -1,22 +1,20 @@
 plugins {
     alias(libs.plugins.androidbp.android.library)
-    alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.androidbp.android.library.compose)
 }
 
 android {
-    namespace = "com.razi.main_repository"
+    namespace = "com.razi.navigation"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 }
 
 dependencies {
 
-   implementation(project(":data:main-remote"))
-   implementation(project(":data:main-local"))
-   implementation(project(":domain:main"))
-
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)

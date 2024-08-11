@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.nowinandroid.android.library)
-    alias(libs.plugins.nowinandroid.hilt)
-    alias(libs.plugins.nowinandroid.android.room)
+    alias(libs.plugins.androidbp.android.library)
+    alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.androidbp.android.room)
 }
 
 android {

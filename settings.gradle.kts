@@ -32,3 +32,4 @@ include(":feature:main")
 include(":domain:mainn")
 include(":domain:main")
 
+include(":core:navigation")

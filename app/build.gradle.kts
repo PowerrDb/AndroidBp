@@ -1,7 +1,8 @@
 plugins {
-    alias(libs.plugins.nowinandroid.application)
-    alias(libs.plugins.nowinandroid.application.compose)
-    alias(libs.plugins.nowinandroid.hilt)
+    alias(libs.plugins.androidbp.application)
+    alias(libs.plugins.androidbp.application.compose)
+    alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.jetbrainsKotlinSerialization)
 }
 
 android {
@@ -56,7 +57,8 @@ dependencies {
     // Lifecycle ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-
+    // kotlinx collection
+    implementation(libs.kotlinx.collections.immutable)
 
     // Retrofit
     implementation(libs.retrofit)
