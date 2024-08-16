@@ -17,8 +17,7 @@ interface MainDao {
     @Query("SELECT * FROM mainentity")
       fun getAllDataEntities(): Flow<List<MainEntity>>
 
-    @Delete
-      fun deleteDataEntity(noteEntity: MainEntity)
+
 
 }
 

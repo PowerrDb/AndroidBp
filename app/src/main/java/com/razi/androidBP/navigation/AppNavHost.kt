@@ -1,4 +1,4 @@
-package com.razi.androidBP
+package com.razi.androidBP.navigation
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition

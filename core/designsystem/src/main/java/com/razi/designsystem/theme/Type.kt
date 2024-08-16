@@ -1,4 +1,4 @@
-package com.razi.androidBP.ui.theme
+package com.razi.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

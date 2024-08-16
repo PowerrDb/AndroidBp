@@ -1,4 +1,4 @@
-package com.razi.androidBP.ui.theme
+package com.razi.designsystem.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

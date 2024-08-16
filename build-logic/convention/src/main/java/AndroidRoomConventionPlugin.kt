@@ -36,9 +36,9 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
             apply("androidx.room")
             apply("com.google.devtools.ksp")
         }
-        extensions.configure<KspExtension> {
-            arg("room.generateKotlin", "true")
-        }
+//        extensions.configure<KspExtension> {
+//            arg("room.generateKotlin", "true")
+//        }
         extensions.configure<RoomExtension> {
             // The schemas directory contains a schema file for each version of the Room database.
             // This is required to enable Room auto migrations.
@@ -52,6 +52,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
             "implementation"(libs.findLibrary("androidx-room-runtime").get())
             "implementation"(libs.findLibrary("androidx-room-ktx").get())
             "ksp"(libs.findLibrary("androidx-room-compiler").get())
+            "annotationProcessor"(libs.findLibrary("androidx-room-compiler").get())
         }
     }
 }

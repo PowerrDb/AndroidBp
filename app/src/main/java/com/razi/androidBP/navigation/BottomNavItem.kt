@@ -1,4 +1,4 @@
-package com.razi.androidBP
+package com.razi.androidBP.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

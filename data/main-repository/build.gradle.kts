@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidbp.android.library)
     alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.androidbp.android.room)
 }
 
 android {

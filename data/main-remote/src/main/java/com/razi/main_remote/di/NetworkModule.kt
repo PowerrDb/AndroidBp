@@ -25,7 +25,8 @@ object NetworkModule {
     fun provideOkHttpClient() : OkHttpClient = OkHttpClient.Builder()
         .addNetworkInterceptor (
             HttpLoggingInterceptor { message ->
-                Log.e("________" , "$message")
+                println("LOG-NET: $message")
+
             }.apply {
                 level = HttpLoggingInterceptor.Level.BODY
             },
@@ -44,13 +45,13 @@ object NetworkModule {
         json: Json,
     ) :Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://api.themoviedb.org/3/")
             .client(client)
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
 
     }
-
+    @Singleton
     @Provides
     fun provideMarketsApi(
         retrofit: Retrofit,

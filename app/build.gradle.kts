@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidbp.application.compose)
     alias(libs.plugins.androidbp.hilt)
     alias(libs.plugins.jetbrainsKotlinSerialization)
+    alias(libs.plugins.androidbp.android.room)
 }
 
 android {
@@ -34,7 +35,10 @@ android {
 
 dependencies {
 
-
+    implementation(project(":domain:main"))
+    implementation(project(":data:main-repository"))
+    implementation(project(":feature:popular-movie"))
+    implementation(project(":core:designsystem"))
     //Projects
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -49,6 +53,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
@@ -87,7 +92,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.core.ktx)
     androidTestImplementation(libs.androidx.core.testing)
-    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.runner)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.truth)
     androidTestImplementation(libs.androidx.espresso.core)

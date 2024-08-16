@@ -11,8 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.razi.androidBP.ui.theme.AndroidbpTheme
+import com.razi.androidBP.navigation.AppNavHost
+import com.razi.androidBP.navigation.BottomNavigationBar
+import com.razi.designsystem.theme.AndroidbpTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,7 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding())
                     )
+
                 }
             }
         }

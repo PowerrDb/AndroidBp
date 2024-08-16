@@ -19,20 +19,18 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
     private fun Project.applyPlugins() {
         pluginManager.apply {
-            apply("composenews.android.library")
-            apply("composenews.android.library.compose")
-            apply("composenews.android.hilt")
+            apply("razi.androidbp.library")
+            apply("razi.androidbp.library.compose")
+            apply("razi.androidbp.hilt")
         }
     }
 
     private fun Project.applyDependencies() {
         dependencies {
-            "implementation"(libs.findLibrary("hilt.navigation.compose").get())
+            "implementation"(libs.findLibrary("androidx-hilt-navigation-compose").get())
             "androidTestImplementation"(libs.findLibrary("runner").get())
+            "api"(project(":core:designsystem"))
 
-            "testImplementation"(project(":core:test"))
-            "api"(project(":library:designsystem"))
-            "api"(project(":core:base"))
         }
     }
 }

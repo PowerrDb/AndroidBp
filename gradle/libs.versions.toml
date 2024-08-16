@@ -1,5 +1,4 @@
 [versions]
-projectApplicationId = "ir.composenews"
 projectVersionName = "1.0.0"
 projectMinSdkVersion = "23"
 projectTargetSdkVersion = "34"
@@ -47,7 +46,7 @@ uiTestManifest = "1.6.7"
 
 extJunit = "1.1.5"
 testCoreKtx = "1.5.0"
-testRunner = "1.5.2"
+runner = "1.5.2"
 kotlinxCoroutinesTest = "1.5.1"
 espressoCore = "3.5.1"
 mockwebserver = "4.9.1"
@@ -60,6 +59,15 @@ material = "1.10.0"
 javaxInject = "1"
 
 [libraries]
+
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "composeMaterial3" }
+
+
 junit = { module = "junit:junit", version.ref = "junit" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 androidx-core = { module = "androidx.test:core", version.ref = "testCore" }
@@ -70,7 +78,8 @@ ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.re
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "extJunit" }
 androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 core-ktx = { module = "androidx.test:core-ktx", version.ref = "testCoreKtx" }
-androidx-runner = { module = "androidx.test:runner", version.ref = "testRunner" }
+runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
@@ -114,7 +123,7 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject" }
-
+androidx-foundation-android = { group = "androidx.compose.foundation", name = "foundation-android"}
 
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxImmutableCollection" }
 
@@ -142,5 +151,14 @@ androidbp-hilt = { id = "razi.androidbp.hilt", version = "unspecified" }
 androidbp-android-room = { id = "razi.androidbp.room", version = "unspecified" }
 androidbp-android-library = { id = "razi.androidbp.library", version = "unspecified" }
 androidbp-application = { id = "razi.androidbp.application", version = "unspecified" }
+androidbp-feature = { id = "razi.androidbp.feature", version = "unspecified" }
 androidbp-application-compose = { id = "razi.androidbp.application.compose", version = "unspecified" }
 androidbp-android-library-compose = { id = "razi.androidbp.library.compose", version = "unspecified" }
+[bundles]
+compose = [
+    "compose-ui",
+    "compose-ui-preview",
+    "compose-ui-tooling",
+    "compose-ui-test-manifest",
+    "compose-material3",
+]

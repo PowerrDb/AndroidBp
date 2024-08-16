@@ -3,6 +3,7 @@ package com.razi.main_local.di
 import android.app.Application
 import androidx.room.Room
 import com.razi.main_local.MainDatabase
+import com.razi.main_local.dao.MainDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,4 +23,12 @@ object AppModule {
             MainDatabase::class.java,
             "main_database.db").build()
     }
+
+    @Singleton
+    @Provides
+    fun provideDao(mainDatabase: MainDatabase)  : MainDao{
+        return mainDatabase.mainDao
+    }
+
+
 }

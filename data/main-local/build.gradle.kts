@@ -40,7 +40,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.core.ktx)
     androidTestImplementation(libs.androidx.core.testing)
-    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.runner)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.truth)
     androidTestImplementation(libs.androidx.espresso.core)

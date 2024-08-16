@@ -1,4 +1,4 @@
-package com.razi.androidBP
+package com.razi.androidBP.navigation
 
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -16,26 +16,21 @@ fun BottomNavigationBar(
     onItemClick: (BottomNavItem) -> Unit
 ) {
     NavigationBar(
-        modifier = modifier,
-        tonalElevation = 15.dp
+        modifier = modifier, tonalElevation = 15.dp
     ) {
         items.forEach { item ->
             val selected = item.route == currentScreenRoute
-            NavigationBarItem(
-                selected = selected,
-                onClick = { onItemClick(item) },
-                icon = {
-                    BottomNavigationIcon(
-                        name = item.title,
-                        icon = item.selectedIcon,
-                        selected = selected,
-                        badgeCount = item.badge,
-                        hasNews = item.hasNews,
-                    )
-                }, label = {
-                    Text(text = item.title)
-                }
-            )
+            NavigationBarItem(selected = selected, onClick = { onItemClick(item) }, icon = {
+                BottomNavigationIcon(
+                    name = item.title,
+                    icon = item.selectedIcon,
+                    selected = selected,
+                    badgeCount = item.badge,
+                    hasNews = item.hasNews,
+                )
+            }, label = {
+                Text(text = item.title)
+            })
         }
     }
 }

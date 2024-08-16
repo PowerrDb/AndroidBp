@@ -33,3 +33,5 @@ include(":domain:mainn")
 include(":domain:main")
 
 include(":core:navigation")
+include(":feature:popular-movie")
+include(":core:designsystem")
