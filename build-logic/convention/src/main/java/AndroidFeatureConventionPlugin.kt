@@ -27,7 +27,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
     private fun Project.applyDependencies() {
         dependencies {
-            "implementation"(libs.findLibrary("androidx-hilt-navigation-compose").get())
+            "implementation"(libs.findLibrary("androidx.hilt.navigation.compose").get())
             "androidTestImplementation"(libs.findLibrary("runner").get())
             "api"(project(":core:designsystem"))
 

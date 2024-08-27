@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             val backStackEntry = navController.currentBackStackEntryAsState()
-            val currentScreenRoute = backStackEntry.value?.destination?.route
+            val currentScreenRoute = remember { backStackEntry.value?.destination?.route }
             AndroidbpTheme {
 
                 Scaffold(bottomBar = {

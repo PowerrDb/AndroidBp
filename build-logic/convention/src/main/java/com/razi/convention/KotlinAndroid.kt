@@ -10,7 +10,7 @@ import org.gradle.kotlin.dsl.provideDelegate
  * Configure base Kotlin with Android options
  */
 internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *,*>,
 ) {
     commonExtension.apply {
         compileSdk = Integer.parseInt(libs.findVersion("projectCompileSdkVersion").get().toString())
@@ -19,8 +19,8 @@ internal fun Project.configureKotlinAndroid(
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
         }
 
         kotlinOptions {
@@ -38,7 +38,7 @@ internal fun Project.configureKotlinAndroid(
             )
 
             // Set JVM target to 17
-            jvmTarget = JavaVersion.VERSION_17.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
         }
 
         testOptions {

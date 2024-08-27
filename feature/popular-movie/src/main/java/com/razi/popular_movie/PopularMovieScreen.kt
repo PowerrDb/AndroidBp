@@ -1,6 +1,6 @@
 package com.razi.popular_movie
 
-import androidx.compose.foundation.Image
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,8 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,6 +25,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,8 +42,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
-import coil.compose.AsyncImagePainter
-import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.razi.designsystem.theme.AndroidbpTheme
 import com.razi.main.model.PopularMovie
@@ -76,6 +74,8 @@ fun PopularMovieScreenRout(
 fun PopularMovieScreen(
     state: MovieListContract.State
 ) {
+    val context = LocalContext.current
+    val contextStableWrapper = StableWrapper(context)
     if (state.loading) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -91,10 +91,8 @@ fun PopularMovieScreen(
             contentPadding = PaddingValues(16.dp),
             state = listState
         ) {
-            items(items = state.movieList,
-                key = { item -> item.id },
-                contentType = { item -> item.id }) {
-                MovieItem(movieList = it)
+            items(items = state.movieList, key = { it.title }) {
+                MovieItem(movieList = it, contextStableWrapper)
 
             }
 
@@ -104,14 +102,15 @@ fun PopularMovieScreen(
 }
 
 @Composable
-fun MovieItem(movieList: PopularMovie) {
+fun MovieItem(movieList: PopularMovie, contextStableWrapper: StableWrapper<Context>) {
 
-    val model = ImageRequest.Builder(LocalContext.current)
-        .data("https://image.tmdb.org/t/p/w500${movieList.poster_path}")
-        .size(coil.size.Size.ORIGINAL).build()
-
-
-    val state = rememberAsyncImagePainter(model = model).state
+    val model by remember {
+        mutableStateOf(
+            ImageRequest.Builder(contextStableWrapper.value)
+                .data("https://image.tmdb.org/t/p/w500${movieList.poster_path}")
+                .size(coil.size.Size.ORIGINAL).build()
+        )
+    }
     Card(
         modifier = Modifier
             .padding(8.dp)
@@ -119,11 +118,17 @@ fun MovieItem(movieList: PopularMovie) {
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Box(
-            contentAlignment = Alignment.BottomCenter,
-            modifier = Modifier.fillMaxSize()
+            contentAlignment = Alignment.BottomCenter, modifier = Modifier.fillMaxSize()
         ) {
-            ImageHandled(state, model)
 
+            AsyncImage(
+                model = model,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(20.dp)),
+                contentDescription = "Image Description",
+                contentScale = ContentScale.Crop,
+            )
             MovieInfoItem(movieList)
         }
 
@@ -133,8 +138,7 @@ fun MovieItem(movieList: PopularMovie) {
 @Composable
 private fun MovieInfoItem(movieList: PopularMovie) {
     Column(
-        horizontalAlignment = Alignment.Start,
-        modifier = Modifier
+        horizontalAlignment = Alignment.Start, modifier = Modifier
             .height(240.dp)
             .background(
                 brush = Brush.verticalGradient(
@@ -166,45 +170,6 @@ private fun MovieInfoItem(movieList: PopularMovie) {
             maxLines = 2,
             text = movieList.overview,
         )
-    }
-}
-
-@Composable
-private fun ImageHandled(
-    state: AsyncImagePainter.State, model: ImageRequest
-) {
-    when (state) {
-        is AsyncImagePainter.State.Loading -> {
-            CircularProgressIndicator()
-        }
-
-        is AsyncImagePainter.State.Success -> {
-
-            AsyncImage(
-                model = model,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(20.dp)),
-                contentDescription = "Image Description",
-                contentScale = ContentScale.Crop,
-            )
-        }
-
-        else -> {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-
-                Image(
-                    imageVector = Icons.Default.Lock,
-                    contentDescription = null,
-                )
-                Text(text = "Need Vpn to Load Image")
-
-            }
-        }
     }
 }
 

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidbp.application)
     alias(libs.plugins.androidbp.application.compose)
     alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsKotlinSerialization)
     alias(libs.plugins.androidbp.android.room)
 }
@@ -33,6 +34,12 @@ android {
 
 }
 
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+    metricsDestination = layout.buildDirectory.dir("compose_compiler")
+}
+
+
 dependencies {
 
     implementation(project(":domain:main"))
@@ -52,6 +59,8 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    
+    implementation(libs.androidx.compose.runtime)
 
     implementation(libs.androidx.hilt.navigation.compose)
 

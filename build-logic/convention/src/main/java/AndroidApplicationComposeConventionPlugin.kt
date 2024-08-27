@@ -2,6 +2,7 @@ import com.razi.convention.applicationGradle
 import com.razi.convention.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
 
 class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -15,7 +16,8 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
 
     private fun Project.applyPlugins() {
         pluginManager.apply {
-            apply("com.android.application")
+            apply(plugin = "com.android.application")
+            apply(plugin = "org.jetbrains.kotlin.plugin.compose")
         }
     }
 

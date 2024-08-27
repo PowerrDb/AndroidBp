@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidbp.android.library)
     alias(libs.plugins.androidbp.hilt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -9,13 +10,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
-
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+    metricsDestination = layout.buildDirectory.dir("compose_compiler")
+}
 dependencies {
-    implementation(libs.javax.inject)
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.compose.runtime)
 }

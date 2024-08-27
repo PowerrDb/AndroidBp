@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.androidbp.feature)
+    alias(libs.plugins.compose.compiler)
+
 }
 
 android {
@@ -11,6 +13,11 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+}
+
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+    metricsDestination = layout.buildDirectory.dir("compose_compiler")
 }
 
 dependencies {

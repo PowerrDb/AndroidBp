@@ -13,7 +13,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 fun BottomNavigationIcon(
     name: String,
     icon: ImageVector,
-    selected: Boolean,
     badgeCount: Int,
     hasNews: Boolean,
 ) {

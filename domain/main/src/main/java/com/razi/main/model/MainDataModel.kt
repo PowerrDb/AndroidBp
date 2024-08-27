@@ -1,6 +1,8 @@
 package com.razi.main.model
 
+import androidx.compose.runtime.Immutable
 
+@Immutable
 data class MainDataModel(
     var title: String,
     var description: String,
