@@ -28,8 +28,6 @@ include(":data:main-remote")
 include(":domain")
 include(":core")
 include(":feature")
-include(":feature:main")
-include(":domain:mainn")
 include(":domain:main")
 
 include(":core:navigation")

@@ -33,9 +33,7 @@
             <option value="$PROJECT_DIR$/data/main-repository" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/main" />
-            <option value="$PROJECT_DIR$/domain/mainn" />
             <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/main" />
             <option value="$PROJECT_DIR$/feature/popular-movie" />
           </set>
         </option>
