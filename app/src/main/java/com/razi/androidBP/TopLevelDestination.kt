@@ -20,7 +20,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Home
-import com.razi.androidBP.navigation.BottomNavItem
+import com.razi.navigation.BottomNavItem
+import com.razi.navigation.Destinations
 import kotlinx.collections.immutable.persistentListOf
 
 /**
@@ -30,18 +31,18 @@ import kotlinx.collections.immutable.persistentListOf
  */
 val bottomNavItems = persistentListOf(
     BottomNavItem(
-        title = "Home", route = "home", selectedIcon = Icons.Filled.Home, hasNews = false, badge = 0
+        title = "Home", route = Destinations.HomeScreen.route, selectedIcon = Icons.Filled.Home, hasNews = false, badge = 0
     ),
     BottomNavItem(
-        title = "Posts",
-        route = "post",
+        title = "ComposeSamples",
+        route = Destinations.ComposeSampleScreen.route,
         selectedIcon = Icons.Filled.Category,
         hasNews = false,
         badge = 0
     ),
     BottomNavItem(
         title = "Profile",
-        route = "profile",
+        route = Destinations.ProfileScreen.route,
         selectedIcon = Icons.Filled.AccountCircle,
         hasNews = true,
         badge = 0

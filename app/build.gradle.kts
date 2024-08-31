@@ -20,15 +20,28 @@ android {
             useSupportLibrary = true
         }
     }
+    signingConfigs {
+        getByName("debug") {
+            keyAlias = "androidbp"
+            keyPassword = "123456"
+            storeFile = file("/keystore.jks")
+            storePassword = "123456"
+        }
 
+    }
     buildTypes {
 
-        release {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isShrinkResources = false
+        }
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt")
         }
     }
 
@@ -45,7 +58,9 @@ dependencies {
     implementation(project(":domain:main"))
     implementation(project(":data:main-repository"))
     implementation(project(":feature:popular-movie"))
+    implementation(project(":feature:compose-sample"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:navigation"))
     //Projects
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -59,7 +74,7 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
-    
+
     implementation(libs.androidx.compose.runtime)
 
     implementation(libs.androidx.hilt.navigation.compose)

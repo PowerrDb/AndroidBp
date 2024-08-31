@@ -34,6 +34,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/main" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/compose-sample" />
             <option value="$PROJECT_DIR$/feature/popular-movie" />
           </set>
         </option>

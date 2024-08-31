@@ -1,22 +1,25 @@
 package com.razi.androidBP.graph
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.offset
-import androidx.compose.material3.Text
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
+import com.razi.compose_sample.navigation.ComposeSampleDestinations
+import com.razi.compose_sample.ListOfComposePracticeRoute
+import com.razi.navigation.Destinations
 
-fun NavGraphBuilder.postsList() {
-    composable("post") {
-        Text(
-            text = "Pooooosts",
-            modifier = Modifier
-                .fillMaxSize()
-                .offset(y = 220.dp),
-            textAlign = TextAlign.Center
-        )
+fun NavGraphBuilder.composeList(navController: NavController) {
+
+    navigation(
+        startDestination = ComposeSampleDestinations.ListOfComposeScreen.route,
+        route = Destinations.ComposeSampleScreen.route
+    ) {
+        composable(ComposeSampleDestinations.ListOfComposeScreen.route) {
+            ListOfComposePracticeRoute(navController)
+
+        }
+        listAnim()
     }
+
+
 }

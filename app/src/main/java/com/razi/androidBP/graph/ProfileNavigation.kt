@@ -8,9 +8,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.razi.navigation.Destinations
 
 fun NavGraphBuilder.profile() {
-    composable("profile") {
+    composable(Destinations.ProfileScreen.route) {
         Text(
             text = "Pooooosts",
             modifier = Modifier

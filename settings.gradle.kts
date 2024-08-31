@@ -30,6 +30,9 @@ include(":core")
 include(":feature")
 include(":domain:main")
 
-include(":core:navigation")
+
 include(":feature:popular-movie")
 include(":core:designsystem")
+include(":feature:compose-sample")
+include(":core:navigation")
+include(":core:navigation")
