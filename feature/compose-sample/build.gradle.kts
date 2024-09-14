@@ -16,4 +16,6 @@ dependencies {
     //compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.bundles.compose)
+    //collection
+    implementation(libs.kotlinx.collections.immutable)
 }
