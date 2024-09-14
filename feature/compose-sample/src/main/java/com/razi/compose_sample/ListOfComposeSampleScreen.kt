@@ -33,7 +33,7 @@ fun MainScreen(modifier: Modifier = Modifier, onClick: (route: String) -> Unit) 
             ElevatedButton(modifier = Modifier.fillMaxWidth(),onClick = { onClick(ComposeSampleDestinations.TaskListScreen.route) }) {
                 Text(text = "Second Sample")
             }
-            ElevatedButton(modifier = Modifier.fillMaxWidth(),onClick = {  }) {
+            ElevatedButton(modifier = Modifier.fillMaxWidth(),onClick = { onClick(ComposeSampleDestinations.BasicLayoutScreen.route) }) {
                 Text(text = "Third Sample(In Progress)")
             }
         }

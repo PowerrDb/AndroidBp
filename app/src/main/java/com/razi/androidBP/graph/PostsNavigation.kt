@@ -20,6 +20,7 @@ fun NavGraphBuilder.composeList(navController: NavController) {
         }
         listAnim()
         taskList()
+        basicLayout()
     }
 
 
