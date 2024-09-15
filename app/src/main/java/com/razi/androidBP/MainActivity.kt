@@ -14,6 +14,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.razi.androidBP.navigation.AppNavHost
 import com.razi.androidBP.navigation.BottomNavigationBar
+import com.razi.androidBP.navigation.rememberBpAppState
 import com.razi.designsystem.theme.AndroidbpTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,20 +24,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val navController = rememberNavController()
-            val backStackEntry = navController.currentBackStackEntryAsState()
-            val currentScreenRoute = remember { backStackEntry.value?.destination?.route }
+            val appState = rememberBpAppState()
             AndroidbpTheme {
 
                 Scaffold(bottomBar = {
-                    BottomNavigationBar(items = bottomNavItems,
-                        currentScreenRoute = currentScreenRoute,
-                        onItemClick = {
-                            navController.navigate(it.route)
-                        })
+                    BottomNavigationBar(appState)
                 }) { paddingValues ->
                     AppNavHost(
-                        navController = navController,
+                        appState = appState,
                         modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding())
                     )
 

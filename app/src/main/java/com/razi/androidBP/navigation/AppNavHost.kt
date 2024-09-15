@@ -13,9 +13,11 @@ import com.razi.androidBP.graph.profile
 
 @Composable
 fun AppNavHost(
-    navController: NavHostController,
+    appState: AppState,
+
     modifier: Modifier,
 ) {
+    val navController = appState.navController
     NavHost(
         navController = navController,
         startDestination = Destinations.HomeScreen.route,

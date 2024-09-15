@@ -29,22 +29,3 @@ import kotlinx.collections.immutable.persistentListOf
  * can contain one or more screens (based on the window size). Navigation from one screen to the
  * next within a single destination will be handled directly in composables.
  */
-val bottomNavItems = persistentListOf(
-    BottomNavItem(
-        title = "Home", route = Destinations.HomeScreen.route, selectedIcon = Icons.Filled.Home, hasNews = false, badge = 0
-    ),
-    BottomNavItem(
-        title = "ComposeSamples",
-        route = Destinations.ComposeSampleScreen.route,
-        selectedIcon = Icons.Filled.Category,
-        hasNews = false,
-        badge = 0
-    ),
-    BottomNavItem(
-        title = "Profile",
-        route = Destinations.ProfileScreen.route,
-        selectedIcon = Icons.Filled.AccountCircle,
-        hasNews = true,
-        badge = 0
-    ),
-)
